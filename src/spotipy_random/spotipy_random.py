@@ -33,12 +33,15 @@ def get_random(spotify: Spotify,
                tag_new: bool = None,
                isrc: str = None,
                genre: str = None,
-               ) -> Optional[Any]:
+               ) -> dict:
 
     if offset_max > 1000:
         raise ValueError("The maximum allowed offset is 1000.")
 
     types: list = type.split(',')
+    random_type: str = random.choice(types)
+    types = [random_type]
+
     offset: int = random.randint(offset_min, offset_max)
 
     wildcard: str = get_wildcard()
@@ -85,4 +88,14 @@ def get_random(spotify: Spotify,
         q += f" {'tag:new' if tag_new else ''}"
 
     result = spotify.search(q, limit, offset, type, market)
-    return result
+    random_type_result_key: str = f"{random_type}s"
+
+    if result is None:
+        raise ValueError("No result was returned.")
+
+    try:
+        element: dict = result[random_type_result_key]["items"][0]
+    except KeyError:
+        raise KeyError("The result could not be parsed.")
+
+    return element
