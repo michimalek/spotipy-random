@@ -1,0 +1,12 @@
+Flask==2.0.3
+connexion[swagger-ui] ~= 2.12.0
+jinja2 == 3.0
+markupsafe == 2.0
+requests~=2.27.1
+marshmallow-dataclass[union]
+markupsafe==2.0
+itsdangerous==2.0.1
+marshmallow~=3.14.1
+spotipy~=2.19.0
+PyYAML~=5.4.1
+flask_cors
