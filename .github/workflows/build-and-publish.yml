@@ -32,4 +32,4 @@ jobs:
       
     - name: Publish package
       run: |
-        python -m twine -r testpypi dist/*
+        python -m twine upload -r testpypi dist/*
