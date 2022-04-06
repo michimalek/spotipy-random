@@ -24,13 +24,13 @@ To use this library first create a new spotipy client object including your pers
 
 ```py
 from spotipy import Spotfiy
-from spotipy-random import get_random
+from spotipy_random import get_random
 
 spotify_client = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
                                  client_id="YOUR_APP_CLIENT_ID",
                                  client_secret="YOUR_APP_CLIENT_SECRET"))
 
-random_pop_song_json: str = get_random(spotify: spotify_client, type="track", genre="pop")
+random_pop_song_json: str = get_random(spotify=spotify_client, type="track", genre="pop")
 ```
 
 ## How it works
